@@ -1,0 +1,900 @@
+local Rayfield = loadstring(game:HttpGet('https://pastebin.com/raw/a8nKfb9A'))()
+
+
+
+local Window = Rayfield:CreateWindow({
+   
+   Name = "Funky Hub",
+   LoadingTitle = "PRDGSNS Interface Suite",
+   LoadingSubtitle = "v0.3.1",
+   ConfigurationSaving = {
+      Enabled = true,
+      
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Funky Hub"
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "QEEhzcEV", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD.
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = true, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Funky Hub",
+      Subtitle = "Key System",
+      Note = "Join the discord (discord.gg/QEEhzcEV)",
+      FileName = "FunkyHubKey",
+      SaveKey = true,
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = "funkkey"
+   }
+})
+    
+
+
+    Rayfield:Notify({
+   Title = "Game Detected:",
+   Content = "Da Hood",
+   Duration = 4.5,
+   
+  
+
+})
+    
+
+    
+    
+    local Tab = Window:CreateTab("Home")
+
+    local Label = Tab:CreateLabel("Welcome, " .. game.Players.LocalPlayer.DisplayName .. "!" .. " (@" .. game:GetService("Players").LocalPlayer.Name .. ")" )
+
+
+-- detected game alert section
+
+
+
+
+
+
+ if game.PlaceId == 2788229376 then -- da hood
+
+    local Section = Tab:CreateSection("Detected Game")
+    
+    local Label = Tab:CreateLabel("Da Hood")
+    
+else
+    
+end
+
+-- detected game scripts
+
+
+
+
+
+    
+   if game.PlaceId == 2788229376 then -- da hood
+    
+    local Tab = Window:CreateTab("Da Hood")
+
+    local Section = Tab:CreateSection("Silent Aim")
+    local executed = false
+    local Toggle = Tab:CreateToggle({
+        
+   Name = "Silent Aim",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        loadstring(game:HttpGet("https://pastebin.com/raw/KRBZu04H", true))()
+        
+        
+        if Value == true then
+        
+        if executed == false then
+        
+        
+        executed = true
+         Rayfield:Notify({
+   Title = "Silent Aim",
+   Content = "Silent Aim Executed",
+   Duration = 4.5,
+        })
+    
+     Rayfield:Notify({
+   Title = "Silent Aim",
+   Content = "True",
+   Duration = 4.5,
+    })
+    
+    
+    elseif executed == true then
+    
+    Rayfield:Notify({
+   Title = "Silent Aim",
+   Content = "True",
+   Duration = 4.5,
+    })
+    
+end
+
+elseif Value == false then
+    
+    Rayfield:Notify({
+   Title = "Silent Aim",
+   Content = "False",
+   Duration = 4.5,
+   })
+end
+   
+        SilentAim = Value
+   
+        
+   end,
+})
+    
+local Toggle = Tab:CreateToggle({
+   Name = "Show FOV",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   Aiming.ShowFOV = Value
+   -- The variable (Value) is a boolean on whether the toggle is true or false
+   
+   end,
+})
+
+local Slider = Tab:CreateSlider({
+   Name = "FOV Size",
+   Range = {0, 200},
+   Increment = 10,
+   Suffix = "FOV",
+   CurrentValue = 119,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   Aiming.FOV = Value
+   -- The variable (Value) is a number which correlates to the value the slider is currently at
+   end,
+})
+
+local Dropdown = Tab:CreateDropdown({
+   Name = "Aim Part",
+   Options = {"Head", "UpperTorso", "HumanoidRootPart", "LowerTorso"},
+   CurrentOption = "HumanoidRootPart",
+   Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Option)
+   Aiming.TargetPart = Option
+   -- The variable (Option) is a string for the value that the dropdown was changed to
+   end,
+})
+
+local Section = Tab:CreateSection("Walkspeed (CFrame)")
+
+
+local Button = Tab:CreateButton({
+   Name = "Walkspeed (Z)",
+   Callback = function()
+   repeat
+		wait()
+	until game:IsLoaded()
+	local L_134_ = game:service('Players')
+	local L_135_ = L_134_.LocalPlayer
+	repeat
+		wait()
+	until L_135_.Character
+	local L_136_ = game:service('UserInputService')
+	local L_137_ = game:service('RunService')
+	getgenv().Multiplier = 0.5
+	local L_138_ = true
+	local L_139_
+	L_136_.InputBegan:connect(function(L_140_arg0)
+		if L_140_arg0.KeyCode == Enum.KeyCode.LeftBracket then
+			Multiplier = Multiplier + 0.01
+			print(Multiplier)
+			wait(0.2)
+			while L_136_:IsKeyDown(Enum.KeyCode.LeftBracket) do
+				wait()
+				Multiplier = Multiplier + 0.01
+				print(Multiplier)
+			end
+		end
+		if L_140_arg0.KeyCode == Enum.KeyCode.RightBracket then
+			Multiplier = Multiplier - 0.01
+			print(Multiplier)
+			wait(0.2)
+			while L_136_:IsKeyDown(Enum.KeyCode.RightBracket) do
+				wait()
+				Multiplier = Multiplier - 0.01
+				print(Multiplier)
+			end
+		end
+		if L_140_arg0.KeyCode == Enum.KeyCode.Z then
+			L_138_ = not L_138_
+			if L_138_ == true then
+				repeat
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + game.Players.LocalPlayer.Character.Humanoid.MoveDirection * Multiplier
+					game:GetService("RunService").Stepped:wait()
+				until L_138_ == false
+			end
+		end
+	end) 
+   end,
+})
+
+
+local Slider = Tab:CreateSlider({
+   Name = "Speed Multiplier",
+   Range = {1, 8},
+   Increment = 1,
+   Suffix = "x",
+   CurrentValue = 1,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   getgenv().Multiplier = Value
+   -- The variable (Value) is a number which correlates to the value the slider is currently at
+   end,
+})
+
+
+
+
+local Section = Tab:CreateSection("Anti")
+
+local Button = Tab:CreateButton({
+   Name = "Force Reset/Anti Stomp (M)",
+   Callback = function()
+   game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(KeyPressed)
+ if KeyPressed == "m" then
+    for L_170_forvar0, L_171_forvar1 in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+        if L_171_forvar1:IsA("BasePart") then
+            L_171_forvar1:Destroy()
+        end
+    end
+    end
+end)
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Anti Jump Cooldown",
+   Callback = function()
+   if not game.IsLoaded(game) then 
+        game.Loaded.Wait(game.Loaded);
+    end
+
+    local IsA = game.IsA;
+    local newindex = nil 
+
+    newindex = hookmetamethod(game, "__newindex", function(self, Index, Value)
+        if not checkcaller() and IsA(self, "Humanoid") and Index == "JumpPower" then 
+            return
+        end
+
+        return newindex(self, Index, Value);
+    end)
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Anti Slow (H)",
+   Callback = function()
+   repeat
+		wait()
+	until game:IsLoaded()
+	getgenv().Fix = true
+	getgenv().TeclasWS = {
+		["tecla1"] = "nil",
+		["tecla2"] = "nil",
+		["tecla3"] = "H"
+	}
+	local L_121_ = game:GetService("Players")
+	local L_122_ = game:GetService("StarterGui") or "son una mierda"
+	local L_123_ = L_121_.LocalPlayer
+	local L_124_ = L_123_:GetMouse()
+	local L_125_ = getrenv()._G
+	local L_126_ = getrawmetatable(game)
+	local L_127_ = L_126_.__newindex
+	local L_128_ = L_126_.__index
+	local L_129_ = 22
+	local L_130_ = true
+	function anunciar_atentado_terrorista(L_138_arg0)
+		L_122_:SetCore("SendNotification", {
+			Title = "antispeed",
+			Text = L_138_arg0
+		})
+	end
+	getgenv().TECHWAREWALKSPEED_LOADED = true
+	wait(1.5)
+	
+	Rayfield:Notify({
+   Title = "AntiSlow",
+   Content = "Press  " .. TeclasWS.tecla3 .. " to turn on/off antislow",
+   Duration = 3.5,
+   
+   
+})
+	
+	-- anunciar_atentado_terrorista("Press  " .. TeclasWS.tecla3 .. " to turn on/off antislow")
+	L_124_.KeyDown:Connect(
+            function(L_139_arg0)
+		if L_139_arg0:lower() == TeclasWS.tecla1:lower() then
+			L_129_ = L_129_ + 1
+			
+			Rayfield:Notify({
+   Title = "AntiSlow",
+   Content = "speed = " .. tostring(L_129_),
+   Duration = 3.5,
+   
+   
+})
+			
+			
+			-- anunciar_atentado_terrorista("播放器速度已提高 (speed = " .. tostring(L_129_) .. ")")
+		elseif L_139_arg0:lower() == TeclasWS.tecla2:lower() then
+			L_129_ = L_129_ - 1
+			
+			
+			Rayfield:Notify({
+   Title = "AntiSlow",
+   Content = "speed = " .. tostring(L_129_),
+   Duration = 3.5,
+   
+   
+})
+			
+			
+			-- anunciar_atentado_terrorista("玩家的速度已降低 (speed = " .. tostring(L_129_) .. ")")
+		elseif L_139_arg0:lower() == TeclasWS.tecla3:lower() then
+			if L_130_ then
+				L_130_ = false
+				
+				Rayfield:Notify({
+   Title = "AntiSlow",
+   Content = "AntiSlow Off",
+   Duration = 3.5,
+   
+   
+})
+				
+				
+				-- anunciar_atentado_terrorista("antislow off")
+			else
+				L_130_ = true
+				
+				
+				Rayfield:Notify({
+   Title = "AntiSlow",
+   Content = "AntiSlow On",
+   Duration = 3.5,
+   
+   
+})
+				
+				
+				-- anunciar_atentado_terrorista("antislow on")
+			end
+		end
+	end
+        )
+	setreadonly(L_126_, false)
+	L_126_.__index =
+            newcclosure(
+            function(L_140_arg0, L_141_arg1)
+		local L_142_ = checkcaller()
+		if L_141_arg1 == "WalkSpeed" and not L_142_ then
+			return L_125_.CurrentWS
+		end
+		return L_128_(L_140_arg0, L_141_arg1)
+	end
+        )
+	L_126_.__newindex =
+            newcclosure(
+            function(L_143_arg0, L_144_arg1, L_145_arg2)
+		local L_146_ = checkcaller()
+		if L_130_ then
+			if L_144_arg1 == "WalkSpeed" and L_145_arg2 ~= 0 and not L_146_ then
+				return L_127_(L_143_arg0, L_144_arg1, L_129_)
+			end
+		end
+		return L_127_(L_143_arg0, L_144_arg1, L_145_arg2)
+	end
+        )
+	setreadonly(L_126_, true)
+	repeat
+		wait()
+	until game:IsLoaded()
+	local L_131_ = game:service("Players")
+	local L_132_ = L_131_.LocalPlayer
+	repeat
+		wait()
+	until L_132_.Character
+	local L_133_ = game:service("UserInputService")
+	local L_134_ = game:service("RunService")
+	local L_135_ = -0.27
+	local L_136_ = false
+	local L_137_
+	L_133_.InputBegan:connect(
+            function(L_147_arg0)
+		if L_147_arg0.KeyCode == Enum.KeyCode.LeftBracket then
+			L_135_ = L_135_ + 0.01
+			print(L_135_)
+			wait(0.2)
+			while L_133_:IsKeyDown(Enum.KeyCode.LeftBracket) do
+				wait()
+				L_135_ = L_135_ + 0.01
+				print(L_135_)
+			end
+		end
+		if L_147_arg0.KeyCode == Enum.KeyCode.RightBracket then
+			L_135_ = L_135_ - 0.01
+			print(L_135_)
+			wait(0.2)
+			while L_133_:IsKeyDown(Enum.KeyCode.RightBracket) do
+				wait()
+				L_135_ = L_135_ - 0.01
+				print(L_135_)
+			end
+		end
+		if L_147_arg0.KeyCode == Enum.KeyCode.Z then
+			L_136_ = not L_136_
+			if L_136_ == true then
+				repeat
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+                                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame +
+                                game.Players.LocalPlayer.Character.Humanoid.MoveDirection * L_135_
+					game:GetService("RunService").Stepped:wait()
+				until L_136_ == false
+			end
+		end
+	end
+        )
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Anti Bag",
+   Callback = function()
+   game.Players.LocalPlayer.Character["Christmas_Sock"]:Destroy() 
+   end,
+})
+
+
+local Section = Tab:CreateSection("Misc")
+
+local Button = Tab:CreateButton({
+   Name = "Autoclicker (L)",
+   Callback = function()
+   local time = 0.01 --decrease if too slow increase if too fast
+
+click = false
+m = game.Players.LocalPlayer:GetMouse()
+m.KeyDown:connect(function(key)
+if key == "l" then
+if click == true then click = false
+elseif
+click == false then click = true
+
+while click == true do 
+wait(time)
+mouse1click()
+end
+end
+end
+end)
+   end,
+})
+
+local Input = Tab:CreateInput({
+   Name = "FOV",
+   PlaceholderText = "FOV",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+   workspace.CurrentCamera.FieldOfView = Text
+   -- The variable (Text) is a string for the value in the text box
+   end,
+})
+
+
+local Input = Tab:CreateInput({
+   Name = "Fog",
+   PlaceholderText = "Fog",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+   game.Lighting.FogEnd = Text
+   -- The variable (Text) is a string for the value in the text box
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Rejoin",
+   Callback = function()
+   local TeleportService = game:GetService("TeleportService")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local Rejoin = coroutine.create(function()
+    local Success, ErrorMessage = pcall(function()
+        TeleportService:Teleport(game.PlaceId, LocalPlayer)
+    end)
+
+    if ErrorMessage and not Success then
+        warn(ErrorMessage)
+    end
+end)
+
+coroutine.resume(Rejoin)  
+   end,
+})
+
+
+
+local Section = Tab:CreateSection("Sketchy Misc (May be risky to use)")
+
+local Button = Tab:CreateButton({
+   Name = "Anti Ban",
+   Callback = function()
+   assert(getrawmetatable)
+gmt = getrawmetatable(game)
+setreadonly(gmt, false)
+old = gmt.__namecall
+gmt.__namecall =
+    newcclosure(
+        function(self, ...)
+        local args = {...}
+        if tostring(args[1]) == "BreathingHAMON" then
+            return
+        elseif tostring(args[1]) == "TeleportDetect" then
+            return
+        elseif tostring(args[1]) == "JJARC" then
+            return
+        elseif tostring(args[1]) == "TakePoisonDamage" then
+            return
+        elseif tostring(args[1]) == "CHECKER_1" then
+            return
+        elseif tostring(args[1]) == "CHECKER" then
+            return
+        elseif tostring(args[1]) == "GUI_CHECK" then
+            return
+        elseif tostring(args[1]) == "OneMoreTime" then
+            return
+        elseif tostring(args[1]) == "checkingSPEED" then
+            return
+        elseif tostring(args[1]) == "BANREMOTE" then
+            return
+        elseif tostring(args[1]) == "PERMAIDBAN" then
+            return
+        elseif tostring(args[1]) == "KICKREMOTE" then
+            return
+        elseif tostring(args[1]) == "BR_KICKPC" then
+            return
+        elseif tostring(args[1]) == "FORCEFIELD" then
+            return
+        elseif tostring(args[1]) == "Christmas_Sock" then
+            return
+        elseif tostring(args[1]) == "VirusCough" then
+            return
+        elseif tostring(args[1]) == "Symbiote" then
+            return
+        elseif tostring(args[1]) == "Symbioted" then
+            return 
+         
+        end
+        return old(self, ...)
+    end)   
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "GodMode",
+   Callback = function()
+   local localPlayer = game:GetService('Players').LocalPlayer;
+                local localCharacter = localPlayer.Character;
+                localCharacter:FindFirstChildOfClass('Humanoid').Health = 0;
+                local newCharacter = localPlayer.CharacterAdded:Wait();
+                local spoofFolder = Instance.new('Folder');
+                spoofFolder.Name = 'FULLY_LOADED_CHAR';
+                spoofFolder.Parent = newCharacter;
+                newCharacter:WaitForChild('RagdollConstraints'):Destroy();
+                local spoofValue = Instance.new('BoolValue', newCharacter);
+                spoofValue.Name = 'RagdollConstraints';
+                local name = game.Players.LocalPlayer.Name
+                local lol =    game.Workspace:WaitForChild(name)
+                local money = Instance.new("Folder",game.Players.LocalPlayer.Character);money.Name = "FULLY_LOADED_CHAR"
+                lol.Parent = game.Workspace.Players
+                game.Players.LocalPlayer.Character:WaitForChild("BodyEffects")
+                game.Players.LocalPlayer.Character.BodyEffects.BreakingParts:Destroy()
+   end,
+})
+
+
+local Button = Tab:CreateButton({
+   Name = "No Recoil",
+   Callback = function()
+   local CurrentFocus = game:GetService("Workspace").CurrentCamera.CFrame
+    game:GetService("Workspace").CurrentCamera:Destroy()
+    local Instance = Instance.new("Camera", game:GetService("Workspace"))
+    Instance.CameraSubject = game:GetService("Players").LocalPlayer.Character.Humanoid
+    Instance.CameraType = Enum.CameraType.Custom
+    Instance.CFrame = CurrentFocus
+   end,
+})
+
+
+
+else
+
+end
+
+    local Tab = Window:CreateTab("Universal")
+
+local Paragraph = Tab:CreateParagraph({Title = "Universal", Content = "WARNING: Do not run any Universal elements unless you are sure they are safe to run in your detected game! Running some Universal scripts in games with certain Anti-Exploits will either kick you from the game or ban you permanently."})
+
+local Section = Tab:CreateSection("ESP")
+
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/trendyylol/roblox/main/Libraries/ESP/Pikahub"))() -- esp lib
+local library = loadstring(game:HttpGet("https://pastebin.com/raw/U2HwmEyF"))() -- esp lib
+
+local Toggle = Tab:CreateToggle({
+   Name = "Boxes",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   getgenv().PikaESPSettings.Box = Value
+   -- The variable (Value) is a boolean on whether the toggle is true or false
+   end,
+})
+
+local Toggle = Tab:CreateToggle({
+   Name = "Names",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   getgenv().PikaESPSettings.Name = Value
+   -- The variable (Value) is a boolean on whether the toggle is true or false
+   end,
+})
+
+
+local Toggle = Tab:CreateToggle({
+   Name = "Tracers",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   getgenv().PikaESPSettings.Tracers = Value
+   -- The variable (Value) is a boolean on whether the toggle is true or false
+   end,
+})
+
+local Toggle = Tab:CreateToggle({
+   Name = "Unlock Tracers",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   getgenv().PikaESPSettings.UnlockTracers = Value
+   -- The variable (Value) is a boolean on whether the toggle is true or false
+   end,
+})
+
+local Toggle = Tab:CreateToggle({
+   Name = "Chams",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   settings_tbl.ESP_Enabled = Value
+   -- The variable (Value) is a boolean on whether the toggle is true or false
+   end,
+})
+
+
+local Toggle = Tab:CreateToggle({
+   Name = "Team Check",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   getgenv().PikaESPSettings.Teammates = Value
+   -- The variable (Value) is a boolean on whether the toggle is true or false
+   end,
+})
+
+local Section = Tab:CreateSection("Player")
+local speedtoggled = false
+local jumptoggled = false
+local heighttoggled = false
+local gravitytoggled = false
+
+local speed = 16
+local jump = 50
+local height = 2
+local gravity = 196.2
+
+
+local Toggle = Tab:CreateToggle({
+   Name = "WalkSpeed",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   speedtoggled = Value
+    if speedtoggled == false then
+        
+       game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+    elseif speedtoggled == true then
+        while speedtoggled == true do
+            wait(1)
+       game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = speed
+       end
+end
+   -- The variable (Value) is a boolean on whether the toggle is true or false
+   end,
+})
+
+
+     
+   local Slider = Tab:CreateSlider({
+   Name = "WalkSpeed",
+   Range = {0, 250},
+   Increment = 1,
+   Suffix = "",
+   CurrentValue = 16,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+     while speedtoggled == true do  
+         speed = Value
+         wait(1)
+    
+   end
+    speed = 16
+   
+   -- The variable (Value) is a number which correlates to the value the slider is currently at
+   end,
+})
+
+
+local Toggle = Tab:CreateToggle({
+   Name = "JumpPower",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+       jumptoggled = Value
+   if jumptoggled == false then
+        
+       game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+    elseif jumptoggled == true then
+        while jumptoggled == true do
+            wait(1)
+       game.Players.LocalPlayer.Character.Humanoid.JumpPower = jump
+       end
+end
+   -- The variable (Value) is a boolean on whether the toggle is true or false
+   end,
+})
+
+
+     
+   local Slider = Tab:CreateSlider({
+   Name = "JumpPower",
+   Range = {0, 250},
+   Increment = 1,
+   Suffix = "",
+   CurrentValue = 50,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+       while jumptoggled == true do  
+         jump = Value
+         wait(1)
+    
+   end
+    jump = 50
+   
+   -- The variable (Value) is a number which correlates to the value the slider is currently at
+   end,
+})
+
+local Toggle = Tab:CreateToggle({
+   Name = "HipHeight",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   heighttoggled = Value
+if heighttoggled == false then
+        
+       game.Players.LocalPlayer.Character.Humanoid.HipHeight = 2
+    elseif heighttoggled == true then
+        while heighttoggled == true do
+            wait(1)
+       game.Players.LocalPlayer.Character.Humanoid.HipHeight = height
+       end
+end
+
+   -- The variable (Value) is a boolean on whether the toggle is true or false
+   end,
+})
+
+
+     
+   local Slider = Tab:CreateSlider({
+   Name = "HipHeight",
+   Range = {0, 250},
+   Increment = 1,
+   Suffix = "",
+   CurrentValue = 2,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+       while heighttoggled == true do  
+         height = Value
+         wait(1)
+    
+   end
+    height = 2
+   -- The variable (Value) is a number which correlates to the value the slider is currently at
+   end,
+})
+
+
+
+local Toggle = Tab:CreateToggle({
+   Name = "Gravity",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   gravitytoggled = Value
+if gravitytoggled == false then
+        
+       game.Workspace.Gravity = 196.2
+    elseif gravitytoggled == true then
+        while gravitytoggled == true do
+            wait(1)
+       game.Workspace.Gravity = gravity
+       end
+end
+
+
+   -- The variable (Value) is a boolean on whether the toggle is true or false
+   end,
+})
+
+
+     
+   local Slider = Tab:CreateSlider({
+   Name = "Gravity",
+   Range = {0, 250},
+   Increment = 1,
+   Suffix = "",
+   CurrentValue = 196.2,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+       while gravitytoggled == true do  
+         gravity = Value
+         wait(1)
+    
+   end
+    gravity = 196.2
+   -- The variable (Value) is a number which correlates to the value the slider is currently at
+   end,
+})
+
+
+
+
+
+
+    local Tab = Window:CreateTab("Settings")
+    
+
+
+
+
+
+
+    local Tab = Window:CreateTab("Info")
+
+
+
+
+    
+    
+    
+    
+    
+
+    
+
+Rayfield:LoadConfiguration()
