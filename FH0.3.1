@@ -32,14 +32,11 @@ local Window = Rayfield:CreateWindow({
     
 
 
-    Rayfield:Notify({
-   Title = "Game Detected:",
-   Content = "Da Hood",
-   Duration = 4.5,
+   
    
   
 
-})
+
     
 
     
@@ -62,7 +59,31 @@ local Window = Rayfield:CreateWindow({
     
     local Label = Tab:CreateLabel("Da Hood")
     
+     Rayfield:Notify({
+   Title = "Game Detected:",
+   Content = "Da Hood",
+   Duration = 4.5,
+   })
+    
+elseif game.PlaceId == 286090429 then -- arsenal
+
+    local Section = Tab:CreateSection("Detected Game")
+    
+    local Label = Tab:CreateLabel("Arsenal")
+    
+     Rayfield:Notify({
+   Title = "Game Detected:",
+   Content = "Arsenal",
+   Duration = 4.5,
+   })
+
 else
+    
+      Rayfield:Notify({
+   Title = "Game Detected:",
+   Content = "None",
+   Duration = 4.5,
+   })
     
 end
 
@@ -619,6 +640,53 @@ local Button = Tab:CreateButton({
 })
 
 
+elseif game.PlaceId == 286090429 then -- arsenal
+
+local Tab = Window:CreateTab("Arsenal")
+
+
+
+
+
+local Section = Tab:CreateSection("Silent Aim")
+
+local Paragraph = Tab:CreateParagraph({Title = "Silent Aim", Content = "Aim up to get headshots and aim down to get body shots. Silent Aim aims at the nearest body part to the cursor."})
+
+local Toggle = Tab:CreateToggle({
+   Name = "Silent Aim",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   loadstring(game:HttpGet('https://pastebin.com/raw/Fp9wyE9r', true))()
+   
+   SilentAim = Value
+   
+   end,
+})
+
+local Slider = Tab:CreateSlider({
+   Name = "Silent Aim FOV",
+   Range = {0, 300},
+   Increment = 10,
+   Suffix = "FOV",
+   CurrentValue = 120,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   -- The function that takes place when the slider changes
+   -- The variable (Value) is a number which correlates to the value the slider is currently at
+   end,
+})
+
+
+
+
+
+
+
+
+
+
+
 
 else
 
@@ -876,7 +944,6 @@ end
 
 
 
-    local Tab = Window:CreateTab("Settings")
     
 
 
