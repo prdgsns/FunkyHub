@@ -1,12 +1,12 @@
 local Rayfield = loadstring(game:HttpGet('https://pastebin.com/raw/a8nKfb9A'))()
 
-
+local version = "v0.3.3"
 
 local Window = Rayfield:CreateWindow({
    
    Name = "Funky Hub",
    LoadingTitle = "PRDGSNS Interface Suite",
-   LoadingSubtitle = "v0.3.1",
+   LoadingSubtitle = version,
    ConfigurationSaving = {
       Enabled = true,
       
@@ -64,6 +64,9 @@ local Window = Rayfield:CreateWindow({
    Content = "Da Hood",
    Duration = 4.5,
    })
+   
+   
+
     
 elseif game.PlaceId == 286090429 then -- arsenal
 
@@ -86,6 +89,10 @@ else
    })
     
 end
+
+
+   local Section = Tab:CreateSection("Updates")
+   local Paragraph = Tab:CreateParagraph({Title = version, Content = "Updated Universal", "Added Arsenal", "Added Da Hood"})
 
 -- detected game scripts
 
@@ -760,8 +767,63 @@ else
 end
 
     local Tab = Window:CreateTab("Universal")
+local Paragraph = Tab:CreateParagraph({Title = "Universal", Content = "WARNING: Do not run any Universal elements unless you are sure they are safe to run in your detected game! Running some Universal scripts in games with certain Anti-Exploits will either kick you from the game or ban you permanently."})    
+    
+    
+    local Section = Tab:CreateSection("Aimbot")
+    
+local library = loadstring(game:HttpGet('https://raw.githubusercontent.com/Exunys/Aimbot-Script/main/Aimbot%20Script.lua', true))()
 
-local Paragraph = Tab:CreateParagraph({Title = "Universal", Content = "WARNING: Do not run any Universal elements unless you are sure they are safe to run in your detected game! Running some Universal scripts in games with certain Anti-Exploits will either kick you from the game or ban you permanently."})
+local Toggle = Tab:CreateToggle({
+   Name = "Aimbot",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   _G.AimbotEnabled = Value
+   -- The variable (Value) is a boolean on whether the toggle is true or false
+   end,
+})
+
+local Toggle = Tab:CreateToggle({
+   Name = "FOV Enabled",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   _G.CircleVisible = Value
+   -- The variable (Value) is a boolean on whether the toggle is true or false
+   end,
+})
+
+local Slider = Tab:CreateSlider({
+   Name = "FOV",
+   Range = {0, 250},
+   Increment = 1,
+   Suffix = "",
+   CurrentValue = 80,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   _G.CircleRadius = Value
+   -- The variable (Value) is a number which correlates to the value the slider is currently at
+   end,
+})
+
+local Toggle = Tab:CreateToggle({
+   Name = "TeamCheck",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   _G.TeamCheck = Value
+   -- The variable (Value) is a boolean on whether the toggle is true or false
+   end,
+})
+
+
+
+
+
+    
+
+
 
 local Section = Tab:CreateSection("ESP")
 
@@ -1007,9 +1069,9 @@ end
 })
 
 
-
-
-
+local Tab = Window:CreateTab("Games")
+local Section = Tab:CreateSection("Supported Games")
+local Paragraph = Tab:CreateParagraph({Title = "Current Supported Games:", Content = "Arsenal", "Da Hood"})
 
     
 
@@ -1025,8 +1087,8 @@ local Label = Tab:CreateLabel("biwu (sediment#2778)")
 local Label = Tab:CreateLabel("herculean (esoteric#1645)")
 local Paragraph = Tab:CreateParagraph({Title = "Funky Hub Discord Server", Content = "https://discord.gg/Jw3YfQfu"})
 local Paragraph = Tab:CreateParagraph({Title = "Other Contacts", Content = "Github- prdgsns or domboflomgerts	Business Email- ''funkyhub.business@gmail.com''"})
-
-
+local Section = Tab:CreateSection("Version")
+local Label = Tab:CreateLabel(version)
     
     
     
