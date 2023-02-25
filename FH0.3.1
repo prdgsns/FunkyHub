@@ -817,7 +817,16 @@ local Toggle = Tab:CreateToggle({
    end,
 })
 
-
+local Dropdown = Tab:CreateDropdown({
+   Name = "Aim Part",
+   Options = {"Head", "UpperTorso", "HumanoidRootPart", "LowerTorso"},
+   CurrentOption = "HumanoidRootPart",
+   Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Option)
+   Aiming.TargetPart = Option
+   -- The variable (Option) is a string for the value that the dropdown was changed to
+   end,
+})
 
 
 
