@@ -92,7 +92,7 @@ end
 
 
    local Section = Tab:CreateSection("Updates")
-   local Paragraph = Tab:CreateParagraph({Title = version, Content = "Updated Universal", "Added Arsenal", "Added Da Hood"})
+   local Paragraph = Tab:CreateParagraph({Title = version, Content = "Updated Universal, Added Arsenal, Added Da Hood"})
 
 -- detected game scripts
 
@@ -823,7 +823,7 @@ local Dropdown = Tab:CreateDropdown({
    CurrentOption = "HumanoidRootPart",
    Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Option)
-   Aiming.TargetPart = Option
+   _G.AimPart = Option
    -- The variable (Option) is a string for the value that the dropdown was changed to
    end,
 })
@@ -1080,7 +1080,7 @@ end
 
 local Tab = Window:CreateTab("Games")
 local Section = Tab:CreateSection("Supported Games")
-local Paragraph = Tab:CreateParagraph({Title = "Current Supported Games:", Content = "Arsenal", "Da Hood"})
+local Paragraph = Tab:CreateParagraph({Title = "Current Supported Games:", Content = "Arsenal | Da Hood"})
 
     
 
